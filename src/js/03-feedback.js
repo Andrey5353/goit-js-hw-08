@@ -1,3 +1,5 @@
+import { throttle } from 'lodash';
+
 const form = document.querySelector('.feedback-form')
 const nameKey = 'feedback-form-state';
 initPage();
@@ -21,7 +23,7 @@ function handleInput(e) {
     };
 };
 
-form.addEventListener('input', _.throttle(handleInput, 500));
+form.addEventListener('input', throttle(handleInput, 500));
 
 
 function initPage() {

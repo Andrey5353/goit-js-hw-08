@@ -1,4 +1,5 @@
 // Add imports above this line
+import 'lazysizes';
 import { galleryItems } from './gallery-items';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
@@ -13,7 +14,7 @@ function elemnt(gallery) {
     const imageEl = gallery.map(
         ({ preview, original, description }) =>
             `<a class="gallery__item" href="${original}">
-   <img class="gallery__image" src="${preview}" alt="${description}" />
+   <img class="gallery__image lazyload" src="${preview}" alt="${description}" />
  </a>`
     ).join('');
 
@@ -21,4 +22,3 @@ function elemnt(gallery) {
 };
 
 new SimpleLightbox('.gallery a', { captionsData: 'alt', captionsDelay: 250 });
-
